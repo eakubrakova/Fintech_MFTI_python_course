@@ -1,0 +1,9 @@
+def holes_count(number):
+    count = 0
+    for digit in str(number):
+        if digit in ['0', '4', '6', '8', '9']:
+            if digit == '8':
+                count += 2
+            else:
+                count += 1
+    return count
