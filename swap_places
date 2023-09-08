@@ -1,0 +1,9 @@
+def swap_places(lst):
+    lst[0], lst[-1] = lst[-1], lst[0]
+    return lst
+print(swap_places([1, 2, 3]))
+## [3, 2, 1]
+print(swap_places([1, 2, 3, 4, 5]))
+## [5, 2, 3, 4, 1]
+print(swap_places(['н', 'л', 'о', 'с']))
+## ['с', 'л', 'о', 'н']
