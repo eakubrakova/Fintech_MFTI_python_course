@@ -1,0 +1,5 @@
+def add_asterisk(string):
+    if len(string) <= 1:
+        return string
+    else:
+        return string[0] + '*' + add_asterisk(string[1:])
