@@ -1,0 +1,26 @@
+# Список из слов
+words_list = ["We're", 'in', 'a', 'small', 'village', 'near', 'Chicago', 'My', "cousin's", 'getting', 'married.']
+
+# Создаём пустой список, в который будем добавлять результаты
+count_a = []
+# Создаём цикл по элементам списка words_list
+for word in words_list:
+    # Проверяем условие, что длина имени больше либо равна пяти
+    if len(word) >= 5:
+        # Создаём кортеж (слово, количество букв 'a')
+        result_tuple = (word, word.lower().count('a'))
+        # Добавляем в итоговый список кортеж
+        count_a.append(result_tuple)
+print(count_a)
+
+## Будет выведено: 
+## [("We're", 0), ('small', 1), ('village', 1), ('Chicago', 1), ("cousin's", 0), ('getting', 0), ('married.', 1)]
+
+""" Решение через lambda_функцию: """
+# Отбираем слова из пяти и более букв
+filtered_words = filter(lambda x: len(x) >= 5, words_list)
+# Все отобранные слова переводим в нижний регистр и считаем число букв 'a' в них
+# Результат выдаём в виде кортежа (слово, количество букв "a")
+count_a = map(lambda x: (x, x.lower().count('a')), filtered_words)
+# Переводим объект map в list и печатаем его
+print(list(count_a))
