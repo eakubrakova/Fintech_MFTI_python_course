@@ -1,0 +1,12 @@
+def print_dict(input_data, level=0):
+    # Если input_data — словарь 
+    if type(input_data) is dict:
+        # Создаём цикл по ключам словаря
+        for key in input_data:
+            # Выводим ключ в формате "<пробелы> <имя ключа> ->"
+            print('  ' * (level) + '{} ->'.format(key))
+            # Повторяем те же операции для каждого значения словаря
+            print_dict(input_data[key], level=level+1)  
+    else: # В противном случае
+        # Выводим значения в формате "<пробелы> <значения>"
+        print('  ' * (level) + str(input_data))
