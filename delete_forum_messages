@@ -1,0 +1,24 @@
+Функция для удаления сообщения на форуме и всех его потомков
+def delete_message(messages, msg_id):
+    # Удаляем из словаря сообщение с идентификатором msg_id
+    # Метод pop() возвращает значение, лежащее по удаляемому ключу
+    result = messages.pop(msg_id)
+    # Получаем идентификатор родителя
+    parrent_link = result['parrent_link']
+    # Получаем список идентификаторов потомков
+    child_link = result['child_link']
+    # Если у сообщения был родитель и он ещё не был удален
+    # Эта запись будет аналогична parrent_link is not None
+    if parrent_link and parrent_link in messages:
+        # Обращаемся к словарю messages по ключу родителя
+        # Удаляем потомка из списка потомков
+        messages[parrent_link]['child_link'].remove(msg_id)
+    # Если у сообщения были потомки
+    # Эта запись будет аналогична child_link == []
+    if child_link:
+        # В цикле проходимся по всем потомкам 
+        for child_id in child_link:
+            # И повторяем те же самые действия для каждого из них
+            # (рекурсивно вызываем функцию delete_message)
+            delete_message(messages, msg_id=child_id)
+    return messages
