@@ -1,0 +1,9 @@
+def equalize_lengths(lst):
+    max_length = len(max(lst, key=len))
+    new_lst = []
+    for string in lst:
+        if len(string) < max_length:
+            string += '_' * (max_length - len(string))
+        new_lst.append(string)
+    new_lst.sort(key=lambda x: x.count('_'), reverse=False)
+    return new_lst
