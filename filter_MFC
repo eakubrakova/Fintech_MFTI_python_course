@@ -1,0 +1,14 @@
+def filter_family(services):
+    family_list = [
+        'certificate of a large family',
+        'social card',
+        'maternity capital',
+        'parking permit',
+        'tax benefit',
+        'reimbursement of expenses',
+        "compensation for the purchase of children's goods"
+    ]
+    
+    filtered_services = list(filter(lambda x: x in family_list, services))
+    
+    return filtered_services
