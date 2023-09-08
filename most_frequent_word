@@ -1,0 +1,28 @@
+def get_most_frequent_word(text):
+    def get_words_list(text):
+        text = text.lower()
+        text = text.replace(',', '')
+        text = text.replace('.', '')
+        text = text.replace(':', '')
+        text = text.replace(';', '')
+        text = text.replace('!', '')
+        text = text.replace('?', '')
+        words_list = text.split()
+        return words_list
+    
+    def get_unique_words(words_list):
+        unique_words = list(set(words_list))
+        unique_words.sort()
+        return unique_words
+    
+    words_list = get_words_list(text)
+    unique_words = get_unique_words(words_list)
+    
+    word_count = {}
+    for word in unique_words:
+        count = words_list.count(word)
+        word_count[word] = count
+    
+    most_frequent_word = max(word_count, key=word_count.get)
+    
+    return most_frequent_word
