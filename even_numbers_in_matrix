@@ -1,0 +1,15 @@
+def even_numbers_in_matrix(matrix):
+    count = 0
+    for row in matrix:
+        for num in row:
+            if num % 2 == 0:
+                count += 1
+    return count
+
+matrix_example = [
+    [1, 5, 4],
+    [4, 2, -2],
+    [7, 65, 88]
+]
+
+print(even_numbers_in_matrix(matrix=matrix_example))
