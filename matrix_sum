@@ -1,0 +1,15 @@
+def matrix_sum(matrix1, matrix2):
+    if len(matrix1) != len(matrix2):
+        print("Error! Matrices dimensions are different!")
+        return None
+    for i in range(len(matrix1)):
+        if len(matrix1[i]) != len(matrix2[i]):
+            print("Error! Matrices dimensions are different!")
+            return None
+    result = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[i])):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        result.append(row)
+    return result
