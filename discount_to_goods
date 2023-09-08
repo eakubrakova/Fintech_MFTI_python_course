@@ -1,0 +1,2 @@
+new_prices = dict(map(lambda x: (x[0], round(x[1] * 0.95, 2)), prices.items()))
+print(new_prices)
