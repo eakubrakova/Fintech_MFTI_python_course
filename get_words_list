@@ -1,0 +1,11 @@
+
+def get_words_list(text):
+    punctuation_list = ['.', ',', ';', ':', '...', '!', '?', '-', '"', '(', ')']
+    text = text.lower()
+    for punctuation in punctuation_list:
+        text = text.replace(punctuation, '')
+    words_list = text.split()
+    return words_list
+
+text_example = "Arrakis, the planet known as Dune, is forever his place."
+print(get_words_list(text=text_example))
