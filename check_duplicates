@@ -1,0 +1,14 @@
+def check_duplicates(lst):
+
+    new_lst = set(lst)
+    if len(lst) == len(new_lst):
+        return False
+    else:
+        return True 
+lst = [0, 0, 1, 2, 3, 4, 5, 5, 6, 7]
+print(check_duplicates(lst))
+# True
+
+lst = list(range(0, 15))
+print(check_duplicates(lst))
+# False          
