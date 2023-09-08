@@ -1,0 +1,2 @@
+expenses_sum = list(map(lambda x: sum(map(int, x)), expenses))
+print(expenses_sum)
