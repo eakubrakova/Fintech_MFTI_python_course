@@ -1,0 +1,17 @@
+data = [
+    ('Amanda', 37, 78, 67),
+    ('Patricia', 78, 93, 68),
+    ('Marcos', 79, 67, 89),
+    ('Dmitry', 67, 68, 100),
+    ('Andrey', 100, 78, 76),
+    ('Victoria', 93, 69, 96),
+]
+
+print(get_total_score(data))
+# [('Amanda', 37, 78, 67, 182), ('Marcos', 79, 67, 89, 235), ('Dmitry', 67, 68, 100, 235), ('Patricia', 78, 93, 68, 239), ('Andrey', 100, 78, 76, 254), ('Victoria', 93, 69, 96, 258)]
+
+
+def get_total_score(data):
+    data = [(*d, sum(d[1:])) for d in data]
+    sorted_data = sorted(data, key=lambda x: x[4], reverse=False)
+    return sorted_data
