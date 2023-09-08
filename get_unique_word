@@ -1,0 +1,4 @@
+def get_unique_words(words_list):
+    unique_words = list(set(words_list))
+    unique_words.sort()
+    return unique_words
