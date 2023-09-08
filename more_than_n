@@ -1,0 +1,10 @@
+def more_than_n(lst, n):
+    new_lst = []
+    for num in lst:
+        if abs(num) > n:
+            new_lst.append(num)
+    return new_lst
+
+print(more_than_n([-1, 4, 4.2, 42.2, -3.4, -5.2], 3))
+print(more_than_n([-1, 4, 4.2, 42.2, -3.4, -5.2], 10))
+print(more_than_n([], 10))
