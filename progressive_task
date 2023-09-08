@@ -1,0 +1,16 @@
+def calculate_tax(salary):
+    if salary < 1000: # Если зарплата < 1000
+        # Налог — 5 % от зарплаты
+        return salary * 0.05
+    elif salary < 2000: # Если зарплата < 2000
+        # Налог — 10 % от зарплаты
+        return salary * 0.1
+    else:
+        # Налог — 15 % от зарплаты
+        return salary * 0.15
+# Применяем функцию calculate_tax к каждому элементу списка
+# Для этого передаём функцию calculate_tax и список salaries в функцию map() 
+# Результат преобразуем к списку
+taxes = list(map(calculate_tax, salaries))
+# Выведем, что получилось
+print(taxes)
