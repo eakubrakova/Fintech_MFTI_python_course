@@ -8,3 +8,15 @@ map_func = lambda x: (*x, round(x[2]/(x[1]**2), 1))
 updated_data = list(map(map_func, data))
 # Выводим результат
 print(updated_data)
+# Создаём lambda-функцию, которая считает BMI, и применяем её к каждому элементу списка
+map_func = lambda x: (*x, x[2]/(x[1]**2))
+updated_data = map(map_func, data)
+# Создаём lambda-функцию, которая возвращает True, если 18.5 <= BMI <= 25
+filter_func = lambda x: 18.5 <= x[3] <= 25
+# Применяем эту функцию к результату работы map()
+filtered_data = filter(filter_func, updated_data)
+# Переводим объект filter в list и печатаем его
+print(list(filtered_data))
+
+## Будет выведено:
+## [('Amanda', 1.61, 51, 19.7), ('Patricia', 1.65, 61, 22.4), ('Andrey', 1.79, 61, 19.0), ('Felicia', 1.63, 56, 21.1)]
