@@ -1,0 +1,26 @@
+# Открываем файлы для чтения и записи
+with open('purchase_log.txt', 'r') as purchase_file, open('visit_log.csv', 'r') as visit_file, open('funnel.csv', 'w') as funnel_file:
+    # Создаем словарь purchases для хранения категорий покупок
+    purchases = {}
+    
+    # Читаем каждую строку файла purchase_log.txt
+    for line in purchase_file:
+        # Разделяем строку на две части по символу ":"
+        key, value = line.strip().split(',')
+        # Добавляем пару ключ-значение в словарь purchases
+        purchases[key] = value
+    
+    # Записываем заголовок в файл funnel.csv
+    funnel_file.write('user_id,source,category\n')
+    
+    # Читаем каждую строку файла visit_log.csv
+    for line in visit_file:
+        # Разделяем строку на три части по символу ","
+        user_id, source = line.strip().split(',')
+        
+        # Проверяем, есть ли пользователь в словаре purchases
+        if user_id in purchases:
+            category = purchases[user_id]
+            # Записываем строку в файл funnel.csv
+            funnel_file.write(f'{user_id},{source},{category}\n')
+
