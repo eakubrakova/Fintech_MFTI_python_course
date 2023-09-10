@@ -1,0 +1,14 @@
+# Создаем пустой словарь purchases
+purchases = {}
+
+# Открываем файл с данными
+with open('data.txt', 'r') as file:
+    # Читаем каждую строку файла
+    for line in file:
+        # Разделяем строку на две части по символу ":"
+        key, value = line.strip().split(':')
+        # Добавляем пару ключ-значение в словарь purchases
+        purchases[key] = value
+
+# Выводим полученный словарь
+print(purchases)
