@@ -1,0 +1,20 @@
+from datetime import datetime
+
+date_formats = [
+    ('The Moscow Times', 'Wednesday, October 2, 2002'),
+    ('The Guardian', 'Friday, 11.10.13'),
+    ('Daily News', 'Thursday, 18 August 1977')
+]
+
+for newspaper, date_string in date_formats:
+    if newspaper == 'The Moscow Times':
+        date_format = '%A, %B %d, %Y'
+    elif newspaper == 'The Guardian':
+        date_format = '%A, %d.%m.%y'
+    elif newspaper == 'Daily News':
+        date_format = '%A, %d %B %Y'
+    else:
+        continue
+
+    date_object = datetime.strptime(date_string, date_format)
+    print(f"{newspaper}: {date_object}")
