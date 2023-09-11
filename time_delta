@@ -1,0 +1,19 @@
+from datetime import datetime, timedelta
+
+def date_range(start_date, end_date):
+    try:
+        start_datetime = datetime.strptime(start_date, '%Y-%m-%d')
+        end_datetime = datetime.strptime(end_date, '%Y-%m-%d')
+    except ValueError:
+        return []
+
+    if start_datetime > end_datetime:
+        return []
+
+    dates = []
+    current_date = start_datetime
+    while current_date <= end_datetime:
+        dates.append(current_date.strftime('%Y-%m-%d'))
+        current_date += timedelta(days=1)
+
+    return dates
