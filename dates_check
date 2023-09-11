@@ -1,0 +1,14 @@
+from datetime import datetime
+
+def dates_check(stream):
+    result = []
+    for date in stream:
+        try:
+            datetime.strptime(date, '%Y-%m-%d')
+            result.append(True)
+        except ValueError:
+            result.append(False)
+    return result
+
+stream = ['2018-04-02', '2018-02-29', '2018-19-02']
+print(dates_check(stream))
