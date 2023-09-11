@@ -1,0 +1,39 @@
+import re
+
+def phone_check(phone):
+    # Удаление всех символов, кроме цифр
+    phone = re.sub(r'\D', '', phone)
+    
+    # Проверка длины номера
+    if len(phone) != 11:
+        return 'Номер не валиден'
+    
+    # Проверка префикса номера
+    prefix = phone[:4]
+    if prefix not in ['+790', '+791', '+792', '+793', '+794', '+795', '+796', '+797', '+798', '+799']:
+        return 'Номер не валиден'
+    
+    # Форматирование номера
+    formatted_phone = '+7-' + phone[4:7] + '-' + phone[7:10] + '-' + phone[10:]
+    
+    return formatted_phone
+
+phone = '+7 955 555-55-55'
+print(phone_check(phone))
+
+phone = '8(955)555-55-55'
+print(phone_check(phone))
+
+phone = '+7 955 555 55 55'
+print(phone_check(phone))
+
+phone = '7(955) 555-55-55'
+print(phone_check(phone))
+
+phone = '423-555-55-5555'
+print(phone_check(phone))
+
+phone = '123-456-789'
+print(phone_check(phone))
+
+
