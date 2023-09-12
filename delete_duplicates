@@ -1,0 +1,9 @@
+import re
+
+def remove_duplicate_words(text):
+    pattern = r'\b(\w+)(\s+\1\b)+'
+    return re.sub(pattern, r'\1', text)
+
+text = input("Введите текст: ")
+result = remove_duplicate_words(text)
+print(result)
